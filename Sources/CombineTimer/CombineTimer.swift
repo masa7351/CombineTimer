@@ -8,16 +8,16 @@ struct CombineTimer {
 public final class CountDownTimer: ObservableObject {
     // MARK: - Input
 
-    var start: (Int) -> Void
-    var resume: () -> Void
-    var stop: () -> Void
+    public var start: (Int) -> Void
+    public var resume: () -> Void
+    public var stop: () -> Void
     
     // MARK: - Output
 
-    @Published private(set) var count: Int
-    @Published private(set) var isRunning: Bool
-    private(set) var isFinish: Bool
-    var hasTime: Bool {
+    @Published public private(set) var count: Int
+    @Published public private(set) var isRunning: Bool
+    @Published public private(set) var isFinish: Bool
+    public var hasTime: Bool {
         return count > 0
     }
 
@@ -26,7 +26,7 @@ public final class CountDownTimer: ObservableObject {
     private var cancelableObjects: [AnyCancellable] = []
     private var timer: Cancellable? = nil
     
-    init(count: Int) {
+    public init(count: Int) {
         self.count = count
         self.isRunning = false
         self.isFinish = false
